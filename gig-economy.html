@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bebas atau Terjebak? Anatomi Gig Economy di Indonesia – KBDI</title>
+  <link rel="icon" href="https://edukbdi.github.io/logo_KBDI/kbdi_trans.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --bg:        #0d0f14;
+      --bg2:       #13161d;
+      --bg3:       #1a1d26;
+      --border:    #ffffff0f;
+      --border2:   #ffffff1a;
+      --txt:       #e8e6e0;
+      --txt2:      #9c9992;
+      --txt3:      #5c5a54;
+      --orange:    #e87722;
+      --orange-dk: #c4601a;
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body:    'Source Serif 4', Georgia, serif;
+      --ff-ui:      'DM Sans', sans-serif;
+    }
+
+    html.light {
+      --bg:        #f2efe8;
+      --bg2:       #e8e4dc;
+      --bg3:       #dedad0;
+      --border:    #00000010;
+      --border2:   #00000022;
+      --txt:       #1a1814;
+      --txt2:      #4a4740;
+      --txt3:      #8a8780;
+      --orange:    #c4601a;
+      --orange-dk: #a34e14;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--txt);
+      font-family: var(--ff-body);
+      font-size: 17px;
+      line-height: 1.85;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(5rem, 12vw, 9rem) clamp(1.2rem, 6vw, 2.5rem) clamp(3rem, 7vw, 5rem);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 20%, #e8772212 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, #e8772208 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      right: -2rem;
+      top: -1rem;
+      font-family: var(--ff-display);
+      font-size: clamp(100px, 22vw, 200px);
+      color: var(--txt);
+      opacity: 0.03;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--ff-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 3px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 0.95;
+      color: var(--txt);
+      letter-spacing: 1px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero-lead {
+      font-family: var(--ff-body);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--txt2);
+      max-width: 620px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta {
+      font-family: var(--ff-ui);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--txt3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .hero-meta .sep { color: var(--orange); }
+
+    /* ===== LAYOUT ===== */
+    .article-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1.2rem, 6vw, 2.5rem);
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .section-kicker {
+      font-family: var(--ff-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    h2.section-head {
+      font-family: var(--ff-display);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: var(--txt);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+
+    .prose p {
+      color: var(--txt2);
+      margin-bottom: 1.3rem;
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    }
+
+    .prose p:last-child { margin-bottom: 0; }
+
+    .prose strong { color: var(--txt); font-weight: 600; }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .divider-ornament {
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+    }
+    .divider-ornament::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      border-top: 1px solid var(--border);
+    }
+    .divider-ornament span {
+      position: relative;
+      background: var(--bg);
+      padding: 0 1rem;
+      color: var(--orange);
+      font-family: var(--ff-ui);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ===== PULL QUOTE ===== */
+    .pull-quote {
+      border-left: 3px solid var(--orange);
+      padding: 1rem 1.4rem;
+      background: var(--bg2);
+      border-radius: 0 8px 8px 0;
+      margin: 2.5rem 0;
+    }
+
+    .pull-quote p {
+      font-family: var(--ff-body);
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+      font-style: italic;
+      color: var(--txt);
+      line-height: 1.7;
+      margin: 0 !important;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: var(--ff-ui);
+      font-size: 11px;
+      color: var(--txt3);
+      font-style: normal;
+      letter-spacing: 1px;
+      margin-top: 0.6rem;
+    }
+
+    /* ===== SVG ILLUSTRATION CONTAINERS ===== */
+    .illo-wrap {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: clamp(1rem, 4vw, 2rem);
+      margin: 2.5rem 0;
+      overflow-x: auto;
+    }
+
+    .illo-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .illo-caption {
+      font-family: var(--ff-ui);
+      font-size: 11px;
+      color: var(--txt3);
+      text-align: center;
+      margin-top: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== FACT BOX ===== */
+    .fact-band {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+
+    .fact-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+    }
+
+    .fact-num {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--orange);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .fact-label {
+      font-family: var(--ff-ui);
+      font-size: 12px;
+      color: var(--txt3);
+      line-height: 1.5;
+    }
+
+    /* ===== SOURCE BOX ===== */
+    .sources-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      margin-top: 3rem;
+    }
+
+    .sources-box h3 {
+      font-family: var(--ff-ui);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .sources-box ol {
+      padding-left: 1.2rem;
+    }
+
+    .sources-box li {
+      font-family: var(--ff-ui);
+      font-size: 12px;
+      color: var(--txt3);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .sources-box a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 500px) {
+      .hero { padding-top: 7rem; }
+      .fact-band { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">GIG</div>
+  <div class="hero-inner">
+    <span class="hero-tag">Ekonomi &amp; Bisnis</span>
+    <h1>Bebas atau<br><em>Terjebak?</em></h1>
+    <p class="hero-lead">
+      Jutaan orang Indonesia kini bekerja sebagai "mitra" platform digital. Bukan karyawan — mitra. Satu kata yang terdengar setara, tapi menyimpan ketimpangan struktural yang dalam.
+    </p>
+    <div class="hero-meta">
+      <span>KBDI</span>
+      <span class="sep">·</span>
+      <span>Ekonomi &amp; Bisnis</span>
+      <span class="sep">·</span>
+      <span>15 menit baca</span>
+      <span class="sep">·</span>
+      <span>2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-wrap">
+
+  <!-- BAGIAN 1: PENGANTAR -->
+  <section class="reveal">
+    <span class="section-kicker">Pengantar</span>
+    <h2 class="section-head">Ketika "Mitra" Bukan Berarti Setara</h2>
+    <div class="prose">
+      <p>
+        Bayangkan sebuah pekerjaan di mana kamu menentukan jam kerjamu sendiri, memilih pesanan yang ingin diambil, dan tidak perlu melapor ke atasan. Terdengar ideal. Itulah narasi yang dijual gig economy — kebebasan kerja di era digital.
+      </p>
+      <p>
+        Tapi di balik narasi itu ada kenyataan lain: tidak ada pesangon jika tiba-tiba di-suspend, tidak ada BPJS Ketenagakerjaan otomatis, tidak ada cuti sakit, dan tidak ada kepastian pendapatan besok. Semua risiko yang seharusnya ditanggung perusahaan, dialihkan ke pundak pekerja — dengan label yang terdengar modern: <strong>mitra independen</strong>.
+      </p>
+      <p>
+        Inilah paradoks gig economy di Indonesia. Ia hadir sebagai solusi pengangguran, tapi beroperasi di zona abu-abu hukum yang membiarkan jutaan pekerja tanpa perlindungan memadai.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ILUSTRASI 1: RODA HAMSTER -->
+  <section class="reveal">
+    <span class="section-kicker">Ilustrasi I</span>
+    <h2 class="section-head">Roda yang Terus Berputar</h2>
+    <div class="prose">
+      <p>
+        Ada metafora yang tepat untuk kondisi pekerja gig: roda hamster. Bergerak terus, mengeluarkan energi penuh, tapi posisinya tidak berubah. Tidak ada akumulasi — tidak ada tabungan pensiun, tidak ada kenaikan jabatan, tidak ada jenjang karir.
+      </p>
+    </div>
+
+    <div class="illo-wrap">
+      <svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustrasi roda hamster gig economy dengan animasi berlari">
+        <defs>
+          <style>
+            .svg-txt { font-family: 'DM Sans', sans-serif; }
+            .svg-lbl { font-family: 'Bebas Neue', sans-serif; letter-spacing:1px; }
+
+            /* Rotasi roda searah jarum jam */
+            @keyframes putar-roda {
+              from { transform: rotate(0deg); }
+              to   { transform: rotate(360deg); }
+            }
+            .roda-group {
+              transform-origin: 220px 155px;
+              animation: putar-roda 3s linear infinite;
+            }
+
+            /* Animasi kaki kiri — ayun maju-mundur */
+            @keyframes kaki-kiri {
+              0%   { transform: rotate(-30deg); }
+              50%  { transform: rotate(30deg); }
+              100% { transform: rotate(-30deg); }
+            }
+            /* Animasi kaki kanan — fase berlawanan */
+            @keyframes kaki-kanan {
+              0%   { transform: rotate(30deg); }
+              50%  { transform: rotate(-30deg); }
+              100% { transform: rotate(30deg); }
+            }
+            /* Animasi lengan kiri */
+            @keyframes lengan-kiri {
+              0%   { transform: rotate(25deg); }
+              50%  { transform: rotate(-25deg); }
+              100% { transform: rotate(25deg); }
+            }
+            /* Animasi lengan kanan — fase berlawanan */
+            @keyframes lengan-kanan {
+              0%   { transform: rotate(-25deg); }
+              50%  { transform: rotate(25deg); }
+              100% { transform: rotate(-25deg); }
+            }
+            /* Animasi tubuh naik-turun sedikit (bouncing) */
+            @keyframes bouncing {
+              0%,100% { transform: translateY(0); }
+              50%      { transform: translateY(-3px); }
+            }
+
+            .figur-group {
+              animation: bouncing 0.5s ease-in-out infinite;
+            }
+            .kaki-kiri-g {
+              transform-origin: 210px 178px;
+              animation: kaki-kiri 0.5s ease-in-out infinite;
+            }
+            .kaki-kanan-g {
+              transform-origin: 210px 178px;
+              animation: kaki-kanan 0.5s ease-in-out infinite;
+            }
+            .lengan-kiri-g {
+              transform-origin: 210px 155px;
+              animation: lengan-kiri 0.5s ease-in-out infinite;
+            }
+            .lengan-kanan-g {
+              transform-origin: 210px 155px;
+              animation: lengan-kanan 0.5s ease-in-out infinite;
+            }
+
+            /* Keringat berkedip */
+            @keyframes kedip-keringat {
+              0%,100% { opacity: 0.8; transform: translateY(0); }
+              50%      { opacity: 0.3; transform: translateY(-4px); }
+            }
+            .keringat { animation: kedip-keringat 0.8s ease-in-out infinite; }
+          </style>
+        </defs>
+
+        <rect width="620" height="300" fill="none"/>
+
+        <!-- RODA (berputar) -->
+        <g class="roda-group">
+          <circle cx="220" cy="155" r="110" fill="none" stroke="#e87722" stroke-width="10" opacity="0.12"/>
+          <circle cx="220" cy="155" r="110" fill="none" stroke="#e87722" stroke-width="2" stroke-dasharray="8 6" opacity="0.45"/>
+          <!-- Jari-jari roda -->
+          <line x1="220" y1="45"  x2="220" y2="265" stroke="#e87722" stroke-width="1.5" opacity="0.2"/>
+          <line x1="110" y1="155" x2="330" y2="155" stroke="#e87722" stroke-width="1.5" opacity="0.2"/>
+          <line x1="142" y1="87"  x2="298" y2="223" stroke="#e87722" stroke-width="1.5" opacity="0.2"/>
+          <line x1="142" y1="223" x2="298" y2="87"  stroke="#e87722" stroke-width="1.5" opacity="0.2"/>
+        </g>
+        <!-- Pusat roda (tidak ikut berputar) -->
+        <circle cx="220" cy="155" r="8" fill="#e87722" opacity="0.6"/>
+        <circle cx="220" cy="155" r="3" fill="#0d0f14" opacity="0.8"/>
+
+        <!-- FIGUR BERLARI (posisi dalam roda, bouncing) -->
+        <g class="figur-group">
+          <!-- Kepala -->
+          <circle cx="210" cy="130" r="11" fill="#e87722" opacity="0.9"/>
+          <!-- Ekspresi wajah lelah -->
+          <circle cx="206" cy="128" r="1.5" fill="#fff" opacity="0.7"/>
+          <circle cx="214" cy="128" r="1.5" fill="#fff" opacity="0.7"/>
+          <path d="M 205 134 Q 210 131 215 134" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.6"/>
+          <!-- Badan -->
+          <line x1="210" y1="141" x2="210" y2="178" stroke="#e87722" stroke-width="3.5" opacity="0.9"/>
+
+          <!-- Lengan kiri (ayun) -->
+          <g class="lengan-kiri-g">
+            <line x1="210" y1="152" x2="193" y2="168" stroke="#e87722" stroke-width="2.5" opacity="0.85"/>
+          </g>
+          <!-- Lengan kanan (ayun berlawanan) -->
+          <g class="lengan-kanan-g">
+            <line x1="210" y1="152" x2="227" y2="168" stroke="#e87722" stroke-width="2.5" opacity="0.85"/>
+          </g>
+
+          <!-- Kaki kiri (ayun) -->
+          <g class="kaki-kiri-g">
+            <line x1="210" y1="178" x2="195" y2="198" stroke="#e87722" stroke-width="2.5" opacity="0.9"/>
+          </g>
+          <!-- Kaki kanan (ayun berlawanan) -->
+          <g class="kaki-kanan-g">
+            <line x1="210" y1="178" x2="225" y2="198" stroke="#e87722" stroke-width="2.5" opacity="0.9"/>
+          </g>
+        </g>
+
+        <!-- Tetesan keringat (animasi terpisah) -->
+        <g class="keringat">
+          <text x="228" y="120" font-size="13" fill="#e87722" opacity="0.75">💧</text>
+        </g>
+
+        <!-- LABEL PLATFORM di kanan roda -->
+        <rect x="345" y="55"  width="90" height="28" rx="5" fill="#e8772220" stroke="#e87722" stroke-width="1"/>
+        <text x="390" y="74"  text-anchor="middle" class="svg-txt" font-size="11" font-weight="700" fill="#e87722">GOJEK</text>
+        <line x1="330" y1="110" x2="345" y2="72" stroke="#e87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.35"/>
+
+        <rect x="348" y="138" width="90" height="28" rx="5" fill="#e8772215" stroke="#e87722" stroke-width="1" opacity="0.75"/>
+        <text x="393" y="157" text-anchor="middle" class="svg-txt" font-size="11" font-weight="700" fill="#e87722" opacity="0.75">GRAB</text>
+        <line x1="330" y1="155" x2="348" y2="152" stroke="#e87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.25"/>
+
+        <rect x="345" y="215" width="90" height="28" rx="5" fill="#e8772210" stroke="#e87722" stroke-width="1" opacity="0.55"/>
+        <text x="390" y="234" text-anchor="middle" class="svg-txt" font-size="11" font-weight="700" fill="#e87722" opacity="0.55">SHOPEE</text>
+        <line x1="330" y1="205" x2="345" y2="230" stroke="#e87722" stroke-width="1" stroke-dasharray="4 3" opacity="0.18"/>
+
+        <!-- PANEL KIRI: TIDAK ADA -->
+        <rect x="8" y="48" width="90" height="205" rx="8" fill="#13161d" stroke="#ffffff0d" stroke-width="1"/>
+        <text x="53" y="70"  text-anchor="middle" class="svg-txt" font-size="9" font-weight="700" fill="#5c5a54" letter-spacing="1.5">TIDAK ADA</text>
+        <line x1="18" y1="77" x2="88" y2="77" stroke="#ffffff0c" stroke-width="1"/>
+        <text x="53" y="97"  text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">Pesangon</text>
+        <text x="53" y="117" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">BPJS Otomatis</text>
+        <text x="53" y="137" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">Cuti Sakit</text>
+        <text x="53" y="157" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">Gaji Tetap</text>
+        <text x="53" y="177" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">Pensiun</text>
+        <text x="53" y="197" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">THR</text>
+        <text x="53" y="217" text-anchor="middle" class="svg-txt" font-size="10" fill="#9c9992">Serikat Kerja</text>
+
+        <!-- JUDUL BAWAH -->
+        <text x="310" y="285" text-anchor="middle" class="svg-lbl" font-size="12" fill="#e87722" opacity="0.55" letter-spacing="2">BEKERJA KERAS, TETAP DI TEMPAT</text>
+      </svg>
+      <p class="illo-caption">Pekerja gig berlari dalam sistem yang berputar terus, tapi tidak mengakumulasi hak-hak dasar ketenagakerjaan.</p>
+    </div>
+
+    <div class="prose">
+      <p>
+        Data Sakernas 2024 dari Badan Pusat Statistik mencatat <strong>84,13 juta orang</strong> bekerja di sektor informal — setara 59,17 persen dari seluruh penduduk bekerja di Indonesia. Proporsi ini stabil di atas 55 persen sejak 2019, artinya mayoritas pekerja Indonesia memang hidup tanpa jaring pengaman formal.
+      </p>
+      <p>
+        Kajian IDEAS (2023) terhadap 225 pengemudi ojol di Jabodetabek menemukan fakta mengejutkan: <strong>61 persen menjadikan ojol sebagai pekerjaan utama dan satu-satunya</strong>. Bukan sampingan. Bukan sementara. Ini adalah sumber nafkah primer — tanpa satu pun jaminan sosial yang menyertainya secara otomatis dari platform.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>▲</span></div>
+
+  <!-- FACT BAND -->
+  <div class="fact-band reveal">
+    <div class="fact-card">
+      <span class="fact-num">84 Jt</span>
+      <span class="fact-label">Pekerja sektor informal Indonesia<br>(Sakernas BPS, 2024)</span>
+    </div>
+    <div class="fact-card">
+      <span class="fact-num">61%</span>
+      <span class="fact-label">Driver ojol yang menjadikan ini satu-satunya pekerjaan<br>(IDEAS, 2023)</span>
+    </div>
+    <div class="fact-card">
+      <span class="fact-num">2,3 Jt</span>
+      <span class="fact-label">Estimasi pekerja gig utama Indonesia<br>(Permana dkk., 2023)</span>
+    </div>
+    <div class="fact-card">
+      <span class="fact-num">12,5%</span>
+      <span class="fact-label">Driver ojol yang terdaftar jaminan sosial ketenagakerjaan<br>(TangerangNews, 2025)</span>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- BAGIAN 2: TIMBANGAN -->
+  <section class="reveal">
+    <span class="section-kicker">Ilustrasi II</span>
+    <h2 class="section-head">Timbangan yang Tidak Pernah Seimbang</h2>
+    <div class="prose">
+      <p>
+        Hubungan antara platform dan pekerja gig bukan kemitraan dalam arti yang sesungguhnya. Platform memiliki <strong>kendali algoritmik</strong> atas tarif, distribusi pesanan, sistem penilaian, bahkan keputusan suspend — semua tanpa mekanisme banding yang jelas bagi pekerja.
+      </p>
+      <p>
+        Studi CIPS (2026) mengidentifikasi fenomena ini sebagai <em>disguised employment</em>: pekerja tampak mandiri secara status, namun dalam praktiknya bekerja layaknya karyawan karena sangat bergantung pada satu platform. Mereka menanggung risiko usaha sendiri, tapi tidak memiliki kendali atas usaha itu.
+      </p>
+    </div>
+
+    <!-- ILUSTRASI 2: TIMBANGAN BERGOYANG -->
+    <div class="illo-wrap">
+      <svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustrasi timbangan tidak seimbang antara platform dan pekerja gig">
+        <defs>
+          <style>
+            .svg-txt2 { font-family: 'DM Sans', sans-serif; }
+
+            /* Timbangan bergoyang ke kiri (sisi platform lebih berat) */
+            @keyframes goyang-batang {
+              0%   { transform: rotate(-8deg); }
+              30%  { transform: rotate(-6deg); }
+              60%  { transform: rotate(-9deg); }
+              80%  { transform: rotate(-7deg); }
+              100% { transform: rotate(-8deg); }
+            }
+            .batang-goyang {
+              transform-origin: 310px 68px;
+              animation: goyang-batang 2.8s ease-in-out infinite;
+            }
+
+            /* Piringan kiri ikut goyang (turun-naik sedikit) */
+            @keyframes piring-kiri {
+              0%   { transform: translateY(0px); }
+              30%  { transform: translateY(-3px); }
+              60%  { transform: translateY(2px); }
+              100% { transform: translateY(0px); }
+            }
+            .piring-kiri-g { animation: piring-kiri 2.8s ease-in-out infinite; }
+
+            /* Piringan kanan ikut goyang berlawanan */
+            @keyframes piring-kanan {
+              0%   { transform: translateY(0px); }
+              30%  { transform: translateY(3px); }
+              60%  { transform: translateY(-2px); }
+              100% { transform: translateY(0px); }
+            }
+            .piring-kanan-g { animation: piring-kanan 2.8s ease-in-out infinite; }
+          </style>
+        </defs>
+
+        <!-- Tiang tengah (statis) -->
+        <line x1="310" y1="68" x2="310" y2="220" stroke="#e87722" stroke-width="3" opacity="0.5"/>
+        <circle cx="310" cy="68" r="7" fill="#e87722" opacity="0.45"/>
+        <rect x="282" y="216" width="56" height="8" rx="4" fill="#e87722" opacity="0.25"/>
+
+        <!-- BATANG TIMBANGAN (bergoyang) -->
+        <g class="batang-goyang">
+          <line x1="100" y1="68" x2="520" y2="68" stroke="#e87722" stroke-width="3" opacity="0.7"/>
+
+          <!-- Tali kiri -->
+          <line x1="100" y1="68" x2="100" y2="118" stroke="#e87722" stroke-width="1.5" opacity="0.5"/>
+          <!-- Tali kanan -->
+          <line x1="520" y1="68" x2="520" y2="118" stroke="#e87722" stroke-width="1.5" opacity="0.5"/>
+        </g>
+
+        <!-- PIRINGAN KIRI: PLATFORM (lebih berat, lebih rendah) -->
+        <g class="piring-kiri-g">
+          <ellipse cx="100" cy="128" rx="82" ry="13" fill="#e8772222" stroke="#e87722" stroke-width="1.5"/>
+          <rect x="38" y="139" width="124" height="90" rx="8" fill="#e8772218" stroke="#e87722" stroke-width="1"/>
+          <text x="100" y="160" text-anchor="middle" class="svg-txt2" font-size="12" font-weight="700" fill="#e87722">PLATFORM</text>
+          <line x1="48" y1="168" x2="152" y2="168" stroke="#e87722" stroke-width="0.5" opacity="0.3"/>
+          <text x="100" y="183" text-anchor="middle" class="svg-txt2" font-size="10" fill="#9c9992">✓ Kontrol tarif &amp; komisi</text>
+          <text x="100" y="199" text-anchor="middle" class="svg-txt2" font-size="10" fill="#9c9992">✓ Algoritma distribusi</text>
+          <text x="100" y="215" text-anchor="middle" class="svg-txt2" font-size="10" fill="#9c9992">✓ Wewenang suspend</text>
+          <!-- Label -->
+          <text x="100" y="244" text-anchor="middle" class="svg-txt2" font-size="9" fill="#e87722" opacity="0.6">▼ lebih berat</text>
+        </g>
+
+        <!-- PIRINGAN KANAN: PEKERJA (lebih ringan, lebih tinggi) -->
+        <g class="piring-kanan-g">
+          <ellipse cx="520" cy="128" rx="82" ry="13" fill="#ffffff07" stroke="#ffffff18" stroke-width="1.5"/>
+          <rect x="458" y="139" width="124" height="110" rx="8" fill="#ffffff05" stroke="#ffffff12" stroke-width="1"/>
+          <text x="520" y="160" text-anchor="middle" class="svg-txt2" font-size="12" font-weight="700" fill="#7a7870">PEKERJA GIG</text>
+          <line x1="468" y1="168" x2="572" y2="168" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+          <text x="520" y="183" text-anchor="middle" class="svg-txt2" font-size="10" fill="#5c5a54">✗ Tanpa pesangon</text>
+          <text x="520" y="199" text-anchor="middle" class="svg-txt2" font-size="10" fill="#5c5a54">✗ Tanpa BPJS otomatis</text>
+          <text x="520" y="215" text-anchor="middle" class="svg-txt2" font-size="10" fill="#5c5a54">✗ Tanpa jaminan kerja</text>
+          <text x="520" y="231" text-anchor="middle" class="svg-txt2" font-size="10" fill="#5c5a54">✗ Tanggung risiko sendiri</text>
+          <!-- Label -->
+          <text x="520" y="262" text-anchor="middle" class="svg-txt2" font-size="9" fill="#5c5a54" opacity="0.7">▲ lebih ringan</text>
+        </g>
+
+        <!-- Judul bawah -->
+        <text x="310" y="315" text-anchor="middle" class="svg-txt2" font-size="11" font-weight="700" fill="#5c5a54" letter-spacing="1.5">KENDALI vs RISIKO — TIDAK PERNAH SETARA</text>
+      </svg>
+      <p class="illo-caption">Platform mendapat kendali penuh, pekerja menanggung risiko penuh. Ini bukan kemitraan — ini transfer risiko terstruktur.</p>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Platform mendapat kendali seperti majikan, tapi melepas tanggung jawab seperti bukan majikan."</p>
+      <cite>— Nabiyla Risfa Izzati, Dosen Hukum Ketenagakerjaan FH UGM, dikutip dari Tirto.id (2024)</cite>
+    </div>
+
+    <div class="prose">
+      <p>
+        Konsep kemitraan dalam gig economy, menurut kajian DPR RI (2025), "bukan lagi hubungan yang seimbang. Dalam praktiknya, sering kali terjadi kesewenang-wenangan dari pemilik platform yang merugikan pekerja, seperti penurunan pendapatan dan persaingan tidak sehat."
+      </p>
+      <p>
+        Ini bukan tuduhan tanpa dasar. Para pengemudi ojol yang tergabung dalam GARDA Indonesia (Gabungan Aksi Roda Dua) dan SPAI (Serikat Pekerja Angkutan Indonesia) telah berulang kali menggelar demonstrasi besar di Jakarta dan kota-kota lain. Tuntutan mereka konsisten: penghapusan kebijakan merugikan, pengurangan potongan komisi aplikasi, dan kepastian skema penghasilan yang adil.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- BAGIAN 3: ANATOMI MITRA vs KARYAWAN -->
+  <section class="reveal">
+    <span class="section-kicker">Ilustrasi III</span>
+    <h2 class="section-head">Anatomi "Mitra" versus Karyawan</h2>
+    <div class="prose">
+      <p>
+        Secara hukum, status "mitra independen" menempatkan pekerja gig di luar jangkauan UU Ketenagakerjaan No. 13 Tahun 2003 maupun UU Cipta Kerja No. 6 Tahun 2023 — keduanya belum secara eksplisit mengatur pekerja gig. Akibatnya, hak-hak yang dinikmati karyawan formal menjadi keistimewaan yang tidak bisa diakses oleh jutaan mitra platform.
+      </p>
+    </div>
+
+    <!-- ILUSTRASI 3: ANATOMI MITRA vs KARYAWAN -->
+    <div class="illo-wrap">
+      <svg viewBox="0 0 620 360" xmlns="http://www.w3.org/2000/svg" aria-label="Infografis perbandingan hak karyawan formal versus mitra pekerja gig">
+        <defs>
+          <style>.svg-txt3{font-family:'DM Sans',sans-serif;}</style>
+        </defs>
+
+        <!-- === KOLOM KARYAWAN (kiri) === -->
+        <rect x="20" y="20" width="270" height="320" rx="10" fill="#e8772212" stroke="#e87722" stroke-width="1.5"/>
+
+        <!-- Header karyawan — warna solid agar terbaca di mode terang -->
+        <rect x="20" y="20" width="270" height="50" rx="10" fill="#c4601a"/>
+        <rect x="20" y="52" width="270" height="18" fill="#c4601a"/>
+
+        <!-- Icon + label karyawan -->
+        <circle cx="58" cy="45" r="14" fill="#fff" opacity="0.2"/>
+        <text x="58" y="50" text-anchor="middle" class="svg-txt3" font-size="15" fill="#fff">👤</text>
+        <text x="165" y="41" text-anchor="middle" class="svg-txt3" font-size="14" font-weight="700" fill="#fff">KARYAWAN</text>
+        <text x="165" y="58" text-anchor="middle" class="svg-txt3" font-size="10" fill="#ffe0cc">STATUS FORMAL</text>
+
+        <!-- List hak karyawan — teks gelap supaya kontras di kedua mode -->
+        <text x="45" y="95"  class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="95"  class="svg-txt3" font-size="11" fill="#6b6860">Upah Minimum (UMR/UMP)</text>
+
+        <text x="45" y="117" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="117" class="svg-txt3" font-size="11" fill="#6b6860">BPJS Ketenagakerjaan</text>
+
+        <text x="45" y="139" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="139" class="svg-txt3" font-size="11" fill="#6b6860">BPJS Kesehatan (iuran majikan)</text>
+
+        <text x="45" y="161" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="161" class="svg-txt3" font-size="11" fill="#6b6860">Pesangon PHK</text>
+
+        <text x="45" y="183" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="183" class="svg-txt3" font-size="11" fill="#6b6860">Tunjangan Hari Raya (THR)</text>
+
+        <text x="45" y="205" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="205" class="svg-txt3" font-size="11" fill="#6b6860">Cuti tahunan &amp; cuti sakit</text>
+
+        <text x="45" y="227" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="227" class="svg-txt3" font-size="11" fill="#6b6860">Hak berserikat</text>
+
+        <text x="45" y="249" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="249" class="svg-txt3" font-size="11" fill="#6b6860">Jaminan Pensiun</text>
+
+        <text x="45" y="271" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="271" class="svg-txt3" font-size="11" fill="#6b6860">Perlindungan kecelakaan kerja</text>
+
+        <text x="45" y="293" class="svg-txt3" font-size="12" fill="#c4601a">✓</text>
+        <text x="62" y="293" class="svg-txt3" font-size="11" fill="#6b6860">Kepastian hubungan kerja</text>
+
+        <!-- Garis pembatas tengah -->
+        <line x1="310" y1="30" x2="310" y2="330" stroke="#88857e" stroke-width="1" stroke-dasharray="6 4" opacity="0.4"/>
+        <text x="310" y="188" text-anchor="middle" class="svg-txt3" font-size="20" font-weight="700" fill="#88857e" opacity="0.5">VS</text>
+
+        <!-- === KOLOM MITRA (kanan) === -->
+        <rect x="330" y="20" width="270" height="320" rx="10" fill="#88857e18" stroke="#88857e" stroke-width="1" opacity="0.5"/>
+
+        <!-- Header mitra — abu solid -->
+        <rect x="330" y="20" width="270" height="50" rx="10" fill="#5c5a54"/>
+        <rect x="330" y="52" width="270" height="18" fill="#5c5a54"/>
+
+        <!-- Icon + label mitra -->
+        <circle cx="368" cy="45" r="14" fill="#fff" opacity="0.12"/>
+        <text x="368" y="50" text-anchor="middle" class="svg-txt3" font-size="15" fill="#bbb">👤</text>
+        <text x="470" y="41" text-anchor="middle" class="svg-txt3" font-size="13" font-weight="700" fill="#e8e6e0">MITRA PLATFORM</text>
+        <text x="470" y="58" text-anchor="middle" class="svg-txt3" font-size="10" fill="#ccc">"INDEPENDEN"</text>
+
+        <!-- List hak mitra -->
+        <text x="355" y="95"  class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="95"  class="svg-txt3" font-size="11" fill="#6b6860">Upah minimum tidak berlaku</text>
+
+        <text x="355" y="117" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="117" class="svg-txt3" font-size="11" fill="#6b6860">BPJS Naker bersifat sukarela</text>
+
+        <text x="355" y="139" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="139" class="svg-txt3" font-size="11" fill="#6b6860">Tidak ditanggung platform</text>
+
+        <text x="355" y="161" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="161" class="svg-txt3" font-size="11" fill="#6b6860">Tidak ada hak pesangon</text>
+
+        <text x="355" y="183" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="183" class="svg-txt3" font-size="11" fill="#6b6860">THR tidak diwajibkan</text>
+
+        <text x="355" y="205" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="205" class="svg-txt3" font-size="11" fill="#6b6860">Tidak ada hak cuti</text>
+
+        <text x="355" y="227" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="227" class="svg-txt3" font-size="11" fill="#6b6860">Platform tolak serikat pekerja</text>
+
+        <text x="355" y="249" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="249" class="svg-txt3" font-size="11" fill="#6b6860">Tidak ada jaminan pensiun</text>
+
+        <text x="355" y="271" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="271" class="svg-txt3" font-size="11" fill="#6b6860">Kecelakaan = risiko sendiri</text>
+
+        <text x="355" y="293" class="svg-txt3" font-size="12" fill="#c4401a">✗</text>
+        <text x="372" y="293" class="svg-txt3" font-size="11" fill="#6b6860">Bisa di-suspend tanpa banding</text>
+      </svg>
+      <p class="illo-caption">Satu kata berbeda — "karyawan" vs "mitra" — menghasilkan jurang hak yang sangat dalam. Sumber: UU No. 13/2003, UU No. 6/2023, BPJS Ketenagakerjaan, DPR RI (2025).</p>
+    </div>
+
+    <div class="prose">
+      <p>
+        CIPS dalam laporan terbarunya (2026) juga mendesak agar platform digital wajib transparan soal <strong>penentuan tarif, komisi, sistem insentif, dan mekanisme penalti</strong>. Saat ini, algoritma yang mengatur pendapatan pekerja gig sepenuhnya berada di tangan platform — tidak dapat diaudit, tidak dapat digugat secara mudah.
+      </p>
+      <p>
+        Dari sisi pendapatan, pekerja gig memang tidak selalu miskin. Laporan CELIOS (2024) mencatat rata-rata penghasilan bersih pengemudi daring berkisar <strong>Rp 3,5–5 juta per bulan</strong>, setara bahkan melampaui UMP di beberapa daerah. Namun angka ini hanya bertahan selama platform tidak menurunkan tarif atau meningkatkan target — dua hal yang sepenuhnya di luar kendali pekerja.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- BAGIAN 4: REGULASI & PENUTUP -->
+  <section class="reveal">
+    <span class="section-kicker">Regulasi & Jalan Keluar</span>
+    <h2 class="section-head">Hukum yang Masih Tertinggal</h2>
+    <div class="prose">
+      <p>
+        Respons negara terhadap fenomena ini masih parsial. Wakil Ketua V DPR RI Syaiful Huda telah mengusulkan <strong>RUU Pekerja Gig</strong> secara inisiatif, yang mengatur hak dan kewajiban dalam hubungan kerja yang tidak terjangkau UU Ketenagakerjaan saat ini. RUU ini, antara lain, mengusulkan jaminan penghasilan bersih bagi mitra pekerja. Perubahan UU Ketenagakerjaan juga telah masuk dalam Prolegnas 2025.
+      </p>
+      <p>
+        Di tingkat global, Singapura telah selangkah lebih maju — mengesahkan undang-undang perlindungan pekerja platform pada 2024, yang mewajibkan platform membayar iuran CPF (dana pensiun) untuk pekerja gig. Indonesia belum sampai di sana.
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Gig economy bisa menjadi berkah bagi ekonomi nasional jika diiringi dengan kesiapan yang matang — terutama kesiapan regulasi yang melindungi mereka yang paling rentan."</p>
+      <cite>— ANTARA News, Oktober 2024</cite>
+    </div>
+
+    <div class="prose">
+      <p>
+        Pertanyaan dasarnya bukan apakah gig economy baik atau buruk. Kontribusinya nyata: studi SBM ITB (2023) memperkirakan layanan ride-hailing menyumbang sekitar <strong>Rp 382,62 triliun per tahun</strong> atau sekitar 2 persen PDB Indonesia. CIPS mencatat kontribusi gig economy secara keseluruhan sebesar <strong>US$ 7 miliar</strong> terhadap PDB pada 2019.
+      </p>
+      <p>
+        Pertanyaannya adalah: <strong>siapa yang menanggung biaya sosial dari pertumbuhan itu?</strong> Selama regulasi tertinggal dari inovasi platform, jawabannya tetap sama — para pekerja yang paling tidak punya pilihan.
+      </p>
+      <p>
+        Gig economy bukan fenomena sementara yang akan hilang sendiri. Ia adalah bentuk baru hubungan kerja yang memerlukan kerangka hukum baru. Bukan untuk membunuh inovasi, tapi untuk memastikan bahwa pertumbuhan digital tidak dibangun di atas prekarisasi jutaan manusia.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SUMBER -->
+  <div class="sources-box reveal">
+    <h3>Sumber &amp; Referensi</h3>
+    <ol>
+      <li>Badan Pusat Statistik (BPS). <em>Sakernas 2024: Data Ketenagakerjaan Nasional.</em></li>
+      <li>IDEAS (Institute for Demographic and Poverty Studies). (2023). <em>Kajian Kondisi Pengemudi Ojol di Jabodetabek.</em></li>
+      <li>Permana, M. Y., Izzati, N. R., &amp; Askar, M. W. (2023). <em>Measuring the Gig Economy in Indonesia: Typology, Characteristics, and Distribution.</em> Jurnal Manajemen Teknologi, 21(3), 339–358.</li>
+      <li>CELIOS (Center of Economic and Law Studies). (2024). <em>Laporan Penghasilan Pengemudi Daring Indonesia.</em></li>
+      <li>CIPS (Center for Indonesian Policy Studies). (2026). <em>Navigating the Future of Work: Policy Approaches for Gig Work in Indonesia.</em> <a href="https://youngster.id/news/analyze/cips-riset-ekonomi-gig-indonesia-perlindungan-pekerja/" target="_blank">youngster.id</a></li>
+      <li>DPR RI – Pusat Kajian Anggaran. (2025). <em>Pekerja Gig: Pilar Baru Penyerapan Tenaga Kerja dan Minimnya Perlindungan.</em> Info Singkat Vol. XVII. <a href="https://berkas.dpr.go.id/pusaka/files/info_singkat/Info%20Singkat-XVII-5-I-P3DI-Maret-2025-209.pdf" target="_blank">berkas.dpr.go.id</a></li>
+      <li>SBM ITB. (2023). <em>Kontribusi Ekonomi Layanan Ride-Hailing Indonesia.</em></li>
+      <li>Nasution, N. R. S., et al. (2025). <em>The Precarious System in Gig Political Economy.</em> MSPR Journal, Universitas Malikussaleh.</li>
+      <li>Tirto.id. (2024, Juli 18). <em>Rentannya Kesejahteraan Pekerja Gig di Indonesia.</em> <a href="https://tirto.id/rentannya-kesejahteraan-pekerja-gig-di-indonesia-g1xL" target="_blank">tirto.id</a></li>
+      <li>ANTARA News. (2024, Oktober 23). <em>Menghadapi Ledakan Pekerja Sektor Informal di Era Ekonomi Gig.</em> <a href="https://www.antaranews.com/berita/4416613/menghadapi-ledakan-pekerja-sektor-informal-di-era-ekonomi-gig" target="_blank">antaranews.com</a></li>
+    </ol>
+  </div>
+
+</article>
+
+<script>
+  /* ===== THEME & HEADER/FOOTER FETCH ===== */
+  const savedTheme = localStorage.getItem('kbdi-theme');
+  if (savedTheme === 'light') document.documentElement.classList.add('light');
+
+  fetch('https://edukbdi.github.io/header.html')
+    .then(r => r.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('afterbegin', html);
+      const header = document.getElementById('kbdi-header');
+      if (savedTheme === 'light') header.classList.add('kbdi-light');
+      document.getElementById('kbdiThemeToggle').addEventListener('click', function() {
+        const isLight = document.documentElement.classList.toggle('light');
+        header.classList.toggle('kbdi-light', isLight);
+        localStorage.setItem('kbdi-theme', isLight ? 'light' : 'dark');
+        const footer = document.getElementById('kbdi-footer');
+        if (footer) footer.classList.toggle('kbdi-light', isLight);
+      });
+    });
+
+  fetch('https://edukbdi.github.io/footer.html')
+    .then(r => r.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+      const footer = document.getElementById('kbdi-footer');
+      if (footer && savedTheme === 'light') footer.classList.add('kbdi-light');
+    });
+
+  /* ===== SCROLL REVEAL ===== */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
